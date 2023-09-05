@@ -1,0 +1,38 @@
+<div class="card my-5 border-0">
+  <div class="row">
+    <div class="col" *ngFor="let im of images">
+      <img [src]="im" class="card-img-top" alt="..." height="400px" />
+    </div>
+  </div>
+
+  <div class="card-body">
+    <h2 class="card-title">{{ product.title }}</h2>
+    <p class="card-text">
+      Category:
+      {{ product.category }}
+    </p>
+    <p class="card-text">
+      Brand:
+      {{ product.brand }}
+    </p>
+    <p class="card-text">
+      Rating:
+      {{ product.rating }}
+    </p>
+    <p class="card-text">
+      Price:
+      {{ product.price | currency : "EGP" }}
+    </p>
+    <p class="card-text">
+      Description:
+      {{ product.description }}
+    </p>
+    <p class="card-text">Discount: {{ product.discountPercentage }}%</p>
+    <p class="card-text">
+      <small class="text-body-secondary">{{
+        product.createdAt | date : "MMM yyyy"
+      }}</small>
+    </p>
+    <button class="btn btn-primary">Add to cart</button>
+  </div>
+</div>

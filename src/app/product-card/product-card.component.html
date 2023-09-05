@@ -1,0 +1,19 @@
+<div class="col">
+  <div class="card h-100">
+    <img
+      [src]="product.thumbnail"
+      class="card-img-top"
+      width="200px"
+      height="200px"
+    />
+    <div class="card-body">
+      <h6>{{product.stock| currency:'hii'}}</h6>
+      <h5 class="card-title">{{ product.title }}</h5>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-primary">Add to cart</button>
+        <button class="btn btn-primary" 
+        (click)="redirectToDetails(product.id,product); showDetails(product.id)">Details</button>
+      </div>
+    </div>
+  </div>
+</div>

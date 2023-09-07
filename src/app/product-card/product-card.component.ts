@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../interfaces/product';
 import { Router } from '@angular/router';
+import { CounterService } from '../services/counter.service';
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
@@ -18,7 +19,7 @@ export class ProductCardComponent {
     this.mydata = product;
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private counterService: CounterService) {}
   redirectToDetails(id: number, data: Product) {
     const queryParam = encodeURIComponent(JSON.stringify(data));
 
@@ -28,5 +29,17 @@ export class ProductCardComponent {
     // });
     this.router.navigate(['product-details', id]);
   }
-}
 
+  counter: number = 0;
+  isAdded: boolean = false;
+
+  ngOnInit() {
+    this.counterService
+      .getCounterVal()
+      .subscribe((val) => (this.counter = val));
+  }
+  addToCart() {
+    this.counterService.setCounterVal(++this.counter);
+    this.isAdded = true;
+  }
+}

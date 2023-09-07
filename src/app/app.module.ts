@@ -16,6 +16,8 @@ import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { CartRowComponent } from './cart-row/cart-row.component';
+import { CounterComponent } from './counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { FooterComponent } from './footer/footer.component';
     NotFoundComponent,
     CartComponent,
     FooterComponent,
+    CartRowComponent,
+    CounterComponent,
     
     
   ],

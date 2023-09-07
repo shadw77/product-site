@@ -5,6 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CartComponent } from './cart/cart.component';
+import { CounterComponent } from './counter/counter.component';
 
 const routes: Routes = [
   {
@@ -28,10 +30,14 @@ const routes: Routes = [
     component: ProductDetailsComponent,
   },
   {
+    path: 'cart',
+    component: CartComponent,
+  },
+  { path: 'counter', component: CounterComponent },
+  {
     path: '**',
-    redirectTo:'',
+    redirectTo: '',
     // component: NotFoundComponent,
-
   },
 ];
 

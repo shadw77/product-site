@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../interfaces/product';
 import datajson from '../../assets/data.json';
+import { CounterService } from '../services/counter.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,7 +12,7 @@ import datajson from '../../assets/data.json';
 export class ProductDetailsComponent {
   dataArray: Array<Product> = datajson;
   product:any;
-  constructor(private activeRoute: ActivatedRoute) {
+  constructor(private activeRoute: ActivatedRoute, private counterService: CounterService) {
   }
   @Input() products: Array<Product> = [];
   // dataArray!: any;
@@ -29,7 +30,18 @@ export class ProductDetailsComponent {
      this.product =  this.dataArray.find((product) => product.id == selected_id)
      this.images=this.product.images;
 
+     this.counterService
+      .getCounterVal()
+      .subscribe((val) => (this.counter = val));
+
   }
   images!: string;
   handleDetails() {}
+
+
+  counter: number = 0;
+
+  addToCart() {
+    this.counterService.setCounterVal(++this.counter);
+  }
 }

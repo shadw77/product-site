@@ -1,12 +1,12 @@
-<div class="card my-5 border-0">
+<div class="card my-5 border-0 " >
   <div class="row">
-    <div class="col" *ngFor="let im of images">
-      <img [src]="im" class="card-img-top" alt="..." height="400px" />
+    <div class="col" *ngFor="let im of images" style="height: 300px; ">
+      <img [src]="im" class="img-fluid img-thumbnail h-100" alt="..."  />
     </div>
   </div>
 
   <div class="card-body">
-    <h2 class="card-title">{{ product.title }}</h2>
+    <h2 class="card-title text-primary">{{ product.title }}</h2>
     <p class="card-text">
       Category:
       {{ product.category }}

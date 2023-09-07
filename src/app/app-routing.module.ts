@@ -29,7 +29,9 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: NotFoundComponent,
+    redirectTo:'',
+    // component: NotFoundComponent,
+
   },
 ];
 

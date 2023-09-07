@@ -1,19 +1,24 @@
-<div class="col">
-  <div class="card h-100">
+<div  >
+  <div class="card" style=" height: 390px;">
     <img
       [src]="product.thumbnail"
-      class="card-img-top"
-      width="200px"
-      height="200px"
+      class="img-fluid h-50"
+     
     />
-    <div class="card-body">
-      <h6 id="{{product.id}}">{{product.stock| checkStock:product.id}}</h6>
-      <h5 class="card-title">{{ product.title }}</h5>
-      <div class="d-flex justify-content-between">
-        <button class="btn btn-primary">Add to cart</button>
-        <button class="btn btn-primary" 
+    <div class="card-body" >
+      <!-- <div class="text-center"> -->
+        <!-- <button class="btn btn-outline-dark px-5" >Rate</button></div> -->
+  
+      <h6 class="text-success my-2" [ngClass]="{'text-danger':product.stock == 0}" id="{{product.id}}">{{product.stock| checkStock}}</h6>
+      <h5 class="card-title my-2">{{ product.title }}</h5>
+      <h6 class="card-title text-primary ">{{ product.price | currency:'EGP'}}</h6>
+
+      <div class="d-flex justify-content-between mt-3">
+        <button class="btn btn-outline-dark px-4">Add to cart</button>
+        <button class="btn btn-outline-dark px-4" 
         (click)="redirectToDetails(product.id,product); showDetails(product.id)">Details</button>
       </div>
+      
     </div>
   </div>
 </div>

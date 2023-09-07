@@ -1,1 +1,169 @@
-<p>register works!</p>
+<form
+  class="w-50 m-auto my-5"
+  [formGroup]="productForm"
+  (ngSubmit)="submitProductForm()"
+>
+  <label for="inputName" class="form-label fs-5 fw-bold mt-5">Name</label>
+  <input
+    type="text"
+    id="inputName"
+    class="form-control py-2 fs-5"
+    name="name"
+    formControlName="productName"
+    required
+  />
+  <div
+    class="form-text"
+    *ngIf="
+      productForm.controls['productName'].touched &&
+      productForm.controls['productName'].invalid
+    "
+  >
+    <small
+      class="text-danger"
+      *ngIf="productForm.controls['productName']?.errors?.['required']"
+    >
+      Name is required
+    </small>
+  </div>
+
+  <label for="inputEmail" class="form-label fs-5 fw-bold mt-5">Email</label>
+  <input
+    type="email"
+    id="inputEmail"
+    class="form-control py-2 fs-5"
+    name="email"
+    formControlName="productEmail"
+    required
+  />
+  <div
+    class="form-text"
+    *ngIf="
+      productForm.controls['productEmail'].touched &&
+      productForm.controls['productEmail'].invalid
+    "
+  >
+    <small
+      class="text-danger"
+      *ngIf="productForm.controls['productEmail']?.errors?.['required']"
+    >
+      Email is required
+    </small>
+    <small
+      class="text-danger"
+      *ngIf="productForm.controls['productEmail']?.errors?.['pattern']"
+    >
+      Email is invalid
+    </small>
+  </div>
+
+  <label for="inputUser" class="form-label fs-5 fw-bold mt-5">Username</label>
+  <input
+    type="text"
+    id="inputUser"
+    class="form-control py-2 fs-5"
+    name="usrername"
+    required
+    formControlName="productUser"
+  />
+
+  <div
+    class="form-text"
+    *ngIf="
+      productForm.controls['productUser'].touched &&
+      productForm.controls['productUser'].invalid
+    "
+  >
+    <small
+      class="text-danger"
+      *ngIf="productForm.controls['productUser']?.errors?.['required']"
+    >
+      Username is required
+    </small>
+    <small
+      class="text-danger"
+      *ngIf="productForm.controls['productUser']?.errors?.['pattern']"
+    >
+      Username is invalid
+    </small>
+  </div>
+
+  <label for="inputPassword5" class="form-label fs-5 fw-bold mt-5"
+    >Password</label
+  >
+  <input
+    type="password"
+    id="inputPassword5"
+    class="form-control py-2 fs-5"
+    name="pass"
+    formControlName="productPass"
+    minlength="8"
+    required
+  />
+
+  <div
+    class="form-text"
+    *ngIf="
+      productForm.controls['productPass'].touched &&
+      productForm.controls['productPass'].invalid
+    "
+  >
+    <small
+      class="text-danger"
+      *ngIf="productForm.controls['productPass']?.errors?.['required']"
+    >
+      Password is required
+    </small>
+    <small
+      class="text-danger"
+      *ngIf="productForm.controls['productPass']?.errors?.['pattern']"
+    >
+      Password must be strong
+    </small>
+  </div>
+
+  <label for="inputPassword6" class="form-label fs-5 fw-bold mt-5"
+    >Confirm password</label
+  >
+  <input
+    type="password"
+    id="inputPassword6"
+    class="form-control py-2 fs-5"
+    name="pass2"
+    formControlName="productRePass"
+    minlength="8"
+    required
+  />
+
+  <div
+    class="form-text"
+    *ngIf="
+      productForm.controls['productRePass'].touched &&
+      productForm.controls['productRePass'].invalid
+    "
+  >
+    <small
+      class="text-danger"
+      *ngIf="productForm.controls['productRePass']?.errors?.['required']"
+    >
+      Retype password is required
+    </small>
+    <small
+      class="text-danger"
+      *ngIf="productForm.controls['productRePass']?.errors?.['pattern']"
+    >
+      Retype password must be strong
+    </small>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary  mt-5 mb-3 fs-5 px-5"
+    onclick="alert('succressful register')"
+  >
+    Register
+  </button>
+  <div>
+    Have an account?
+    <a routerLink="../login">Login</a>
+  </div>
+</form>

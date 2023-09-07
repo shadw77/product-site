@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../interfaces/product';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
@@ -30,3 +29,4 @@ export class ProductCardComponent {
     this.router.navigate(['product-details', id]);
   }
 }
+

@@ -17,7 +17,7 @@
       <td>{{ item.item.price }}</td>
 
       <td><app-counter [item]="item"></app-counter></td>
-      <td><button class="btn btn-dark">remove</button></td>
+      <td><button class="btn btn-dark" (click)="del(item)">remove</button></td>
     </tr>
   </tbody>
 </table>

@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class CartRowComponent {
 @Input() item:any
-constructor(){console.log("hhhh",this.item);
+constructor(){
 }
 }

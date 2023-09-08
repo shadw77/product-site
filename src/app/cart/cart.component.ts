@@ -39,28 +39,24 @@ export class CartComponent {
       error: (error) => console.log(error),
       complete: () => (this.loader = false),
     });
-  
-
-
-    // this.itemsService.getCounterVal().subscribe((val) => this.id.push(val)
-    // );
+ 
     //  console.log("kkkkkkkkkk",this.items);
   }
-  // function ccart():void {
-  //   if(this.products){
-      
-  //     console.log(this.products);
-      
-  //   console.log('qqqqqqqqqqqqqqqqqqq',this.id);
-  //            this.intersect = this.products.filter((a:any) => this.id.some((b:any) => a.id == b))
-  //   }
+  del(product:any){
+    console.log(product);
     
-  // }
+    // if (this.items.entries !== undefined) {
+      
+      for (let i = 0; i < this.items.length; i++) {
+    
 
-  
-  // addToCart(id:number) {
-  //   this.counterService.setCounterVal(++this.counter);
-  //   this.itemsService.setCounterVal(this.items.push(id),id)
-  //   this.isAdded = true;
+        if (this.items[i].item === product.item) {
+                console.log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+
+          this.items.splice(i, 1);
+          break; 
+        }
+      }
+    }
   // }
 }

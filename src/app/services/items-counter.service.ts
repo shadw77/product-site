@@ -28,7 +28,6 @@ export class ItemsCounterService {
 
   // dataArray: Array<Product> = datajson as Array<Product>;
   
-  
 // this.product = this.dataArray.find((product:any) => product.id == selected_id);
 
 }

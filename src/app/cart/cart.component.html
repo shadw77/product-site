@@ -1,3 +1,4 @@
+<!-- <p >shadwa {{ counter }}mohamed</p> -->
 <table class="table table-striped">
   <thead>
     <tr>
@@ -8,9 +9,15 @@
       <th scope="col"></th>
     </tr>
   </thead>
-  <tbody>
-    <!-- <tr *ngFor="let item of items">
-      <app-cart-row [item]="item"></app-cart-row>
-    </tr> -->
+  <tbody >
+    <tr *ngFor="let item of products">
+      <!-- <app-cart-row [item]="item"></app-cart-row> -->
+      <td>{{ item.title }}</td>
+      <td>{{ item.category }}</td>
+      <td>{{ item.price }}</td>
+
+      <td><app-counter></app-counter></td>
+      <td><button class="btn btn-dark">remove</button></td>
+    </tr>
   </tbody>
 </table>

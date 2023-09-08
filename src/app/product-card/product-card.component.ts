@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../interfaces/product';
 import { Router } from '@angular/router';
 import { CounterService } from '../services/counter.service';
+import { ItemsCounterService } from '../services/items-counter.service';
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
@@ -19,7 +20,7 @@ export class ProductCardComponent {
     this.mydata = product;
   }
 
-  constructor(private router: Router, private counterService: CounterService) {}
+  constructor(private router: Router, private counterService: CounterService, private itemsService:ItemsCounterService) {}
   redirectToDetails(id: number, data: Product) {
     const queryParam = encodeURIComponent(JSON.stringify(data));
 
@@ -31,15 +32,21 @@ export class ProductCardComponent {
   }
 
   counter: number = 0;
+  items:Array<any>=[];
   isAdded: boolean = false;
 
   ngOnInit() {
     this.counterService
       .getCounterVal()
       .subscribe((val) => (this.counter = val));
+
+      this.itemsService.getCounterVal().subscribe((val)=> (this.items.push(val)))
   }
-  addToCart() {
+  addToCart(id:number) {
     this.counterService.setCounterVal(++this.counter);
+    this.itemsService.setCounterVal(this.items.push(id),id)
     this.isAdded = true;
+    
+    
   }
 }

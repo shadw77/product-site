@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { CartRowComponent } from './cart-row/cart-row.component';
 import { CounterComponent } from './counter/counter.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { CounterComponent } from './counter/counter.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   
   ],
   providers: [],

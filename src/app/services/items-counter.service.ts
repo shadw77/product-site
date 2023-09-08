@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import datajson from '../../assets/data.json';
 import {Product} from '../interfaces/product'
+import { Cart } from '../interfaces/cart';
 
 @Injectable({
   providedIn: 'root'
@@ -9,19 +10,20 @@ import {Product} from '../interfaces/product'
 export class ItemsCounterService {
 
   // private counter = new BehaviorSubject<[][]>([]);
-  // private items = new BehaviorSubject<Array<any>>([]);
-  items: BehaviorSubject<Array<any>> = new BehaviorSubject <Array<any>> ([] as any[]);
+  private items = new BehaviorSubject<Array<Cart>>([]);
+
+  // items: BehaviorSubject<Array<any>> = new BehaviorSubject <Array<any>> ([] as any[]);
   constructor() {}
 
-  getCounterVal() {    
+  getItems() {    
 
     return this.items.asObservable();
   }
-  setCounterVal(newVal: any, id:number) {
-    console.log(newVal, id);
-  const currentItems = this.items.getValue(); // Get the current array value
-  const updatedItems = [...currentItems, newVal]; // Create a new array with the new value
-  this.items.next(updatedItems); // Update the BehaviorSubject with the new array
+  setItems(items:Array<Cart>) {
+    // console.log(newVal, id);
+  // const currentItems = this.items.getValue(); // Get the current array value
+  // const updatedItems = [...currentItems, newVal]; // Create a new array with the new value
+  this.items.next(items); // Update the BehaviorSubject with the new array
 
 
   // dataArray: Array<Product> = datajson as Array<Product>;

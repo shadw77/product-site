@@ -10,6 +10,7 @@ export class NavbarComponent {
   counter: number = 0;
   constructor(private counterService: CounterService) {}
   ngOnInit() {
+  
     this.counterService
       .getCounterVal()
       .subscribe((val) => this.counter = val);

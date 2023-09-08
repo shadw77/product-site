@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CounterService } from '../services/counter.service';
 
 @Component({
@@ -7,19 +7,19 @@ import { CounterService } from '../services/counter.service';
   styleUrls: ['./counter.component.css'],
 })
 export class CounterComponent {
+  @Input() item: any;
   counter: number = 0;
   constructor(private counterService: CounterService) {}
   ngOnInit() {
     this.counterService
       .getCounterVal()
-      .subscribe((val) => this.counter = val);
+      .subscribe((val) => (this.counter = val));
   }
 
   decrease() {
-    this.counterService.setCounterVal(--this.counter)
+    this.counterService.setCounterVal(--this.counter);
   }
   increase() {
-    this.counterService.setCounterVal(++this.counter)
-
+    this.counterService.setCounterVal(++this.counter);
   }
 }

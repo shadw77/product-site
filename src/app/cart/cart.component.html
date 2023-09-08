@@ -10,13 +10,13 @@
     </tr>
   </thead>
   <tbody >
-    <tr *ngFor="let item of products">
+    <tr *ngFor="let item of items">
       <!-- <app-cart-row [item]="item"></app-cart-row> -->
-      <td>{{ item.title }}</td>
-      <td>{{ item.category }}</td>
-      <td>{{ item.price }}</td>
+      <td>{{ item.item.title }}</td>
+      <td>{{ item.item.category }}</td>
+      <td>{{ item.item.price }}</td>
 
-      <td><app-counter></app-counter></td>
+      <td><app-counter [item]="item"></app-counter></td>
       <td><button class="btn btn-dark">remove</button></td>
     </tr>
   </tbody>
